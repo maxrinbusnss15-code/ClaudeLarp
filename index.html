@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Guide: International Trade, Free Trade, Trade Balance & Forex</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--accent:#f59e0b;--accent2:#fbbf24;--text:#f1f5f9;--text2:#94a3b8;--green:#10b981;--red:#ef4444;--blue:#3b82f6;--purple:#8b5cf6;--teal:#14b8a6;--border:#475569}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent2)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+nav .nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .logo{font-weight:800;font-size:1.2rem;color:var(--accent)}
+nav .logo span{color:var(--text)}
+nav ul{display:flex;list-style:none;gap:0.5rem}
+nav ul li a{padding:0.5rem 1rem;border-radius:8px;font-size:0.85rem;font-weight:500;color:var(--text2);transition:all 0.3s}
+nav ul li a:hover,nav ul li a.active{color:var(--accent);background:rgba(245,158,11,0.1)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:0.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.15),transparent 70%);top:-100px;right:-100px;border-radius:50%}
+.hero::after{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,0.1),transparent 70%);bottom:-50px;left:-50px;border-radius:50%}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;margin-bottom:1.5rem;line-height:1.1}
+.hero h1 .highlight{color:var(--accent);display:block}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--text2);max-width:700px;margin:0 auto 2rem}
+.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2.5rem;font-weight:800;color:var(--accent)}
+.hero-stat .label{font-size:0.85rem;color:var(--text2)}
+.scroll-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 2rem;background:var(--accent);color:var(--bg);font-weight:700;border-radius:50px;font-size:1rem;cursor:pointer;border:none;transition:transform 0.3s}
+.scroll-btn:hover{transform:translateY(-2px)}
+
+/* SECTIONS */
+.section{padding:5rem 2rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-number{font-size:0.85rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:3px;margin-bottom:0.5rem}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:1rem}
+.section-subtitle{font-size:1.1rem;color:var(--text2);max-width:700px;margin:0 auto}
+.section:nth-child(even){background:rgba(30,41,59,0.3)}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:2rem;transition:transform 0.3s,border-color 0.3s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.card h3{font-size:1.4rem;font-weight:700;margin-bottom:1rem;color:var(--accent)}
+.card h4{font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;color:var(--accent2)}
+.card p,.card li{color:var(--text2);line-height:1.8}
+.card ul,.card ol{padding-left:1.5rem;margin:0.5rem 0}
+.card li{margin-bottom:0.5rem}
+.card strong{color:var(--text)}
+
+/* DEFINITION BOX */
+.def-box{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.02));border-left:4px solid var(--accent);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin:1.5rem 0}
+.def-box .def-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:0.3rem}
+.def-box p{color:var(--text);font-size:1.05rem}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+
+/* MINI CARD */
+.mini-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.3s}
+.mini-card:hover{border-color:var(--accent)}
+.mini-card .icon{font-size:2rem;margin-bottom:0.8rem}
+.mini-card h4{font-weight:700;margin-bottom:0.5rem;color:var(--text)}
+.mini-card p{font-size:0.9rem;color:var(--text2)}
+
+/* TABLE */
+.styled-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden}
+.styled-table thead{background:var(--card2)}
+.styled-table th{padding:1rem;text-align:left;font-weight:600;color:var(--accent);font-size:0.9rem}
+.styled-table td{padding:1rem;border-bottom:1px solid var(--border);color:var(--text2);font-size:0.9rem}
+.styled-table tbody tr:hover{background:rgba(245,158,11,0.05)}
+
+/* CHART */
+.chart-container{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin:2rem 0}
+.chart-container h3{font-size:1.2rem;font-weight:700;margin-bottom:1rem;color:var(--text)}
+.chart-wrapper{position:relative;max-height:400px;margin:0 auto}
+
+/* BADGE */
+.badge{display:inline-block;padding:0.25rem 0.75rem;border-radius:50px;font-size:0.75rem;font-weight:600}
+.badge-green{background:rgba(16,185,129,0.15);color:var(--green)}
+.badge-red{background:rgba(239,68,68,0.15);color:var(--red)}
+.badge-blue{background:rgba(59,130,246,0.15);color:var(--blue)}
+.badge-amber{background:rgba(245,158,11,0.15);color:var(--accent)}
+
+/* PROS CONS */
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+.pros,.cons{padding:1.5rem;border-radius:12px}
+.pros{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2)}
+.cons{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2)}
+.pros h4{color:var(--green);margin-bottom:1rem}
+.cons h4{color:var(--red);margin-bottom:1rem}
+.pros li,.cons li{color:var(--text2);margin-bottom:0.5rem;font-size:0.95rem}
+
+/* FORMULA */
+.formula{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;margin:1.5rem 0;font-size:1.3rem;font-weight:600;color:var(--accent)}
+
+/* GLOSSARY */
+.glossary-grid{columns:2;column-gap:2rem}
+.glossary-item{break-inside:avoid;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1rem}
+.glossary-item dt{font-weight:700;color:var(--accent);margin-bottom:0.3rem}
+.glossary-item dd{font-size:0.9rem;color:var(--text2)}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent)}
+.timeline-item{position:relative;margin-bottom:2rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-2.35rem;top:0.5rem;width:12px;height:12px;background:var(--accent);border-radius:50%;border:3px solid var(--bg)}
+.timeline-item h4{font-weight:700;color:var(--text);margin-bottom:0.3rem}
+.timeline-item p{font-size:0.9rem;color:var(--text2)}
+
+/* ANIMATE */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s,transform 0.6s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--text2);font-size:0.85rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(15,23,42,0.98);padding:1rem;border-bottom:1px solid var(--border)}
+  nav ul.open{display:flex}
+  .hamburger{display:flex}
+  .grid-2,.pros-cons{grid-template-columns:1fr}
+  .glossary-grid{columns:1}
+  .hero-stats{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+<div class="nav-inner">
+  <div class="logo">Trade<span>Guide</span></div>
+  <button class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="#international-trade">International Trade</a></li>
+    <li><a href="#free-trade">Free Trade</a></li>
+    <li><a href="#trade-balance">Trade Balance</a></li>
+    <li><a href="#forex">Forex</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+  </ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+  <h1>The Complete Guide to<span class="highlight">Global Trade & Forex</span></h1>
+  <p>A comprehensive resource covering international trade, free trade agreements, trade balance, balance of payments, foreign exchange markets, exchange rate systems, and everything in between.</p>
+  <a href="#international-trade" class="scroll-btn">Start Learning &#8595;</a>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">$32T+</div><div class="label">Global Trade Volume (2025)</div></div>
+    <div class="hero-stat"><div class="num">$7.5T</div><div class="label">Daily Forex Turnover</div></div>
+    <div class="hero-stat"><div class="num">300+</div><div class="label">Active Trade Agreements</div></div>
+    <div class="hero-stat"><div class="num">180+</div><div class="label">Currencies Worldwide</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: INTERNATIONAL TRADE -->
+<!-- ============================================================ -->
+<section class="section" id="international-trade">
+<div class="section-inner">
+  <div class="section-header reveal">
+    <div class="section-number">Section 01</div>
+    <h2 class="section-title">International Trade</h2>
+    <p class="section-subtitle">The exchange of goods, services, and capital across international borders — the backbone of the global economy.</p>
+  </div>
+
+  <!-- Definition -->
+  <div class="card reveal">
+    <h3>&#128218; Definition</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p><strong>International trade</strong> is the exchange of goods, services, and capital between countries or territories. It allows nations to expand their markets, access resources they don't have domestically, and participate in the global economy. International trade accounts for a significant share of most countries' GDP and is a primary driver of economic growth worldwide.</p>
+    </div>
+    <p>International trade has existed for thousands of years — from the ancient Silk Road connecting China to the Roman Empire, to today's complex global supply chains. Modern international trade is governed by international organisations such as the <strong>World Trade Organisation (WTO)</strong>, regional agreements, and bilateral treaties.</p>
+  </div>
+
+  <!-- Why Countries Trade -->
+  <div class="card reveal">
+    <h3>&#127759; Why Countries Trade</h3>
+    <p>No country can produce everything it needs efficiently. Countries trade because of:</p>
+    <div class="grid-3" style="margin-top:1.5rem">
+      <div class="mini-card">
+        <div class="icon">&#9874;&#65039;</div>
+        <h4>Unequal Resource Distribution</h4>
+        <p>Natural resources (oil, minerals, arable land) are not evenly distributed. Saudi Arabia has oil; Brazil has coffee; Australia has iron ore. Trade allows countries to obtain what they lack.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128200;</div>
+        <h4>Comparative Advantage</h4>
+        <p>Even if a country can produce everything, it benefits from specialising in goods it produces at the lowest opportunity cost and trading for the rest.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128176;</div>
+        <h4>Economies of Scale</h4>
+        <p>Access to larger markets allows firms to increase production, reducing the average cost per unit and making goods cheaper for everyone.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#127793;</div>
+        <h4>Differences in Climate & Geography</h4>
+        <p>Tropical countries grow bananas and coffee; temperate countries grow wheat. Climate makes certain products impossible to produce domestically.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128161;</div>
+        <h4>Technological Differences</h4>
+        <p>Some countries have advanced technology (Japan, Germany) while others have abundant labour. Trade lets each exploit their strengths.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#127917;</div>
+        <h4>Consumer Choice & Competition</h4>
+        <p>Trade gives consumers access to a wider variety of goods at competitive prices, improving quality and driving innovation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Types of International Trade -->
+  <div class="card reveal">
+    <h3>&#128230; Types of International Trade</h3>
+    <div class="grid-3" style="margin-top:1rem">
+      <div class="mini-card" style="border-left:3px solid var(--green)">
+        <h4>Import Trade</h4>
+        <p>The purchase of goods and services from foreign countries for domestic consumption. Example: The UK importing electronics from China or oil from Norway. Imports satisfy domestic demand that cannot be met by local production.</p>
+      </div>
+      <div class="mini-card" style="border-left:3px solid var(--blue)">
+        <h4>Export Trade</h4>
+        <p>The sale of domestically produced goods and services to foreign markets. Example: Germany exporting automobiles worldwide or Colombia exporting coffee. Exports earn foreign currency and boost GDP.</p>
+      </div>
+      <div class="mini-card" style="border-left:3px solid var(--purple)">
+        <h4>Entrepot Trade (Re-export Trade)</h4>
+        <p>Goods are imported into a country not for domestic consumption but to be processed, repackaged, or re-exported to a third country. Example: Singapore imports crude oil, refines it, and exports petroleum products. Hong Kong and the Netherlands are also major entrepot traders.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trade Theories -->
+  <div class="card reveal">
+    <h3>&#128214; Theories of International Trade</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Mercantilism (16th–18th Century)</h4>
+        <p>The earliest trade theory. Mercantilists believed that a nation's wealth was measured by its stock of gold and silver. Countries should maximise exports and minimise imports to accumulate precious metals. Governments imposed tariffs, quotas, and subsidies. This is a <strong>zero-sum</strong> view — one country's gain is another's loss. Criticised by Adam Smith for ignoring the benefits of mutual trade.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Absolute Advantage — Adam Smith (1776)</h4>
+        <p>In <em>The Wealth of Nations</em>, Smith argued that countries should specialise in producing goods where they have an <strong>absolute advantage</strong> — meaning they can produce a good using fewer resources than another country. If Country A makes wine cheaper and Country B makes cloth cheaper, both benefit by specialising and trading. This was a <strong>positive-sum</strong> view of trade.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Comparative Advantage — David Ricardo (1817)</h4>
+        <p>Ricardo extended Smith's theory to show that trade is beneficial even if one country has an absolute advantage in producing ALL goods. What matters is <strong>relative efficiency</strong> (opportunity cost). If Portugal can produce both wine and cloth cheaper than England, but is <em>relatively</em> more efficient at wine, Portugal should specialise in wine and England in cloth. Both countries gain from trade. This is the foundational principle of modern trade theory.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Heckscher-Ohlin Model (1919/1933)</h4>
+        <p>Also called the <strong>Factor Proportions Theory</strong>. Countries export goods that use their abundant factors of production intensively. A labour-abundant country (e.g., Bangladesh) exports labour-intensive goods (textiles). A capital-abundant country (e.g., USA) exports capital-intensive goods (aircraft, machinery). This theory explains trade patterns based on factor endowments: land, labour, capital.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Product Life Cycle Theory — Raymond Vernon (1966)</h4>
+        <p>Products go through stages: <strong>Introduction</strong> (produced and consumed in the innovating country), <strong>Growth</strong> (exported to other developed countries), <strong>Maturity</strong> (production moves to developing countries for lower costs), and <strong>Decline</strong> (innovating country may import the product). Explains how the USA invented the TV but production eventually moved to Japan, then China.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>New Trade Theory — Paul Krugman (1979)</h4>
+        <p>Argues that <strong>economies of scale</strong> and <strong>network effects</strong> can be as important as comparative advantage. First-mover advantages, high fixed costs, and learning curves create barriers that give early entrants dominance. Explains why a few large firms dominate industries like aircraft (Boeing, Airbus) — it's not about factor endowments but about scale and first-mover advantage. Krugman won the Nobel Prize in 2008 for this work.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Porter's Diamond Model — Michael Porter (1990)</h4>
+        <p>National competitive advantage comes from four interrelated factors: <strong>Factor Conditions</strong> (skilled labor, infrastructure), <strong>Demand Conditions</strong> (sophisticated domestic consumers), <strong>Related & Supporting Industries</strong> (strong supplier networks), and <strong>Firm Strategy, Structure & Rivalry</strong> (intense domestic competition). Explains why Silicon Valley dominates tech and why Italy excels in fashion.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms of Trade -->
+  <div class="card reveal">
+    <h3>&#128181; Terms of Trade (ToT)</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>Terms of Trade</strong> measures the ratio of a country's export prices to its import prices. It indicates how many units of imports a country can obtain per unit of exports.</p>
+    </div>
+    <div class="formula">ToT = (Index of Export Prices &divide; Index of Import Prices) &times; 100</div>
+    <div class="grid-2" style="margin-top:1.5rem">
+      <div class="mini-card" style="border-left:3px solid var(--green)">
+        <h4>Favourable (Improving) ToT</h4>
+        <p>When ToT > 100 or rising. Export prices are rising relative to import prices. A country can buy more imports for each unit of exports. This increases national welfare and real income. Example: An oil-exporting country benefits when oil prices rise.</p>
+      </div>
+      <div class="mini-card" style="border-left:3px solid var(--red)">
+        <h4>Unfavourable (Deteriorating) ToT</h4>
+        <p>When ToT < 100 or falling. Export prices are falling relative to import prices. A country must export more to afford the same quantity of imports. This reduces real income. Common for developing countries dependent on primary commodity exports whose prices are volatile.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits & Drawbacks -->
+  <div class="card reveal">
+    <h3>&#9878;&#65039; Benefits & Drawbacks of International Trade</h3>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>&#9989; Benefits</h4>
+        <ul>
+          <li><strong>Greater consumer choice</strong> — access to goods not produced domestically</li>
+          <li><strong>Lower prices</strong> — competition forces efficiency and reduces costs</li>
+          <li><strong>Economic growth</strong> — larger markets expand output and GDP</li>
+          <li><strong>Specialisation</strong> — countries focus on what they do best</li>
+          <li><strong>Technology transfer</strong> — ideas and innovation spread across borders</li>
+          <li><strong>Job creation</strong> — export industries create employment</li>
+          <li><strong>Foreign investment</strong> — trade openness attracts FDI</li>
+          <li><strong>Peaceful relations</strong> — economic interdependence reduces conflict</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>&#10060; Drawbacks</h4>
+        <ul>
+          <li><strong>Job losses</strong> — domestic industries may be undercut by cheaper imports</li>
+          <li><strong>Over-dependence</strong> — reliance on foreign goods creates vulnerability</li>
+          <li><strong>Environmental damage</strong> — increased transport and production pollution</li>
+          <li><strong>Exploitation</strong> — developing nations may be locked into low-value exports</li>
+          <li><strong>Cultural erosion</strong> — globalisation may homogenise cultures</li>
+          <li><strong>Trade deficits</strong> — persistent imbalances can weaken the economy</li>
+          <li><strong>Infant industry harm</strong> — new domestic industries can't compete with established foreign firms</li>
+          <li><strong>Income inequality</strong> — gains from trade are not equally distributed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart: Top Trading Nations -->
+  <div class="chart-container reveal">
+    <h3>&#128202; Top 10 Trading Nations by Export Volume (USD Billions, 2024 est.)</h3>
+    <div class="chart-wrapper"><canvas id="chart-exports"></canvas></div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: FREE TRADE -->
+<!-- ============================================================ -->
+<section class="section" id="free-trade">
+<div class="section-inner">
+  <div class="section-header reveal">
+    <div class="section-number">Section 02</div>
+    <h2 class="section-title">Free Trade & Protectionism</h2>
+    <p class="section-subtitle">The debate between open markets and protective barriers — the most contested topic in international economics.</p>
+  </div>
+
+  <!-- Definition -->
+  <div class="card reveal">
+    <h3>&#128218; Definition of Free Trade</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p><strong>Free trade</strong> is a trade policy where governments do not restrict imports from, or exports to, other countries. It is the absence of tariffs, quotas, subsidies, and other government-imposed barriers to trade. Under free trade, goods and services flow freely across borders based on market forces of supply and demand.</p>
+    </div>
+    <p style="margin-top:1rem;color:var(--text2)">Free trade is the practical application of comparative advantage theory. Economists generally agree that free trade maximises global welfare, though the distribution of those gains is often unequal. The opposite of free trade is <strong>protectionism</strong>.</p>
+  </div>
+
+  <!-- Arguments For & Against -->
+  <div class="card reveal">
+    <h3>&#9878;&#65039; The Free Trade Debate</h3>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>&#9989; Arguments FOR Free Trade</h4>
+        <ul>
+          <li><strong>Allocative efficiency</strong> — resources flow to their most productive use globally</li>
+          <li><strong>Lower prices for consumers</strong> — competition reduces monopoly pricing</li>
+          <li><strong>Greater consumer choice</strong> — access to global product variety</li>
+          <li><strong>Economies of scale</strong> — firms access larger markets, reducing unit costs</li>
+          <li><strong>Promotes innovation</strong> — competition drives R&D and technological progress</li>
+          <li><strong>Economic growth</strong> — increases GDP through expanded markets</li>
+          <li><strong>Specialisation</strong> — countries focus on their comparative advantage</li>
+          <li><strong>Reduces poverty</strong> — developing countries access wealthy markets</li>
+          <li><strong>Encourages FDI</strong> — open economies attract foreign investment</li>
+          <li><strong>International cooperation</strong> — trade ties reduce geopolitical conflict</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>&#10060; Arguments AGAINST Free Trade</h4>
+        <ul>
+          <li><strong>Infant industry argument</strong> — new industries need protection to develop before facing global competition</li>
+          <li><strong>Job displacement</strong> — workers in uncompetitive sectors lose livelihoods</li>
+          <li><strong>Dumping</strong> — foreign firms sell below cost to destroy domestic competitors</li>
+          <li><strong>Dependency</strong> — over-reliance on imports threatens national security</li>
+          <li><strong>Environmental degradation</strong> — race to the bottom in environmental standards</li>
+          <li><strong>Unequal gains</strong> — benefits accrue to capital owners, not workers</li>
+          <li><strong>Loss of sovereignty</strong> — trade rules may override domestic policy</li>
+          <li><strong>Strategic trade policy</strong> — governments may support strategic industries (aerospace, semiconductors)</li>
+          <li><strong>Cultural homogenisation</strong> — global brands replace local traditions</li>
+          <li><strong>Revenue loss</strong> — developing countries lose tariff revenue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Protectionism Methods -->
+  <div class="card reveal">
+    <h3>&#128737;&#65039; Methods of Protectionism</h3>
+    <p>Protectionism refers to government policies that restrict international trade to help domestic industries. Key methods include:</p>
+
+    <h4>1. Tariffs</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>tariff</strong> is a tax imposed on imported goods, making them more expensive and less competitive compared to domestic products.</p>
+    </div>
+    <div class="grid-3" style="margin:1rem 0">
+      <div class="mini-card">
+        <h4>Specific Tariff</h4>
+        <p>A fixed monetary amount per unit imported. Example: $5 per tonne of steel. Easy to administer but doesn't adjust to price changes.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Ad Valorem Tariff</h4>
+        <p>A percentage of the value of the imported good. Example: 20% on the CIF value of imported cars. Adjusts with price but requires accurate valuation.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Compound Tariff</h4>
+        <p>A combination of specific and ad valorem tariffs. Example: $2 per unit + 10% of value. Provides dual protection.</p>
+      </div>
+    </div>
+    <p style="color:var(--text2)"><strong>Effects of tariffs:</strong> Higher domestic prices, reduced imports, increased government revenue, reduced consumer surplus, increased producer surplus, deadweight welfare loss, potential retaliation from trading partners.</p>
+
+    <h4>2. Quotas</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>quota</strong> is a quantitative limit on the amount of a particular good that can be imported during a specified period. Unlike tariffs, quotas generate no government revenue (the surplus goes to importers or foreign exporters who hold quota rights).</p>
+    </div>
+
+    <h4>3. Subsidies</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>subsidy</strong> is a financial contribution by the government to domestic producers, reducing their costs and allowing them to compete with cheaper imports. Types include direct cash payments, tax breaks, low-interest loans, and subsidised inputs.</p>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem">Export subsidies help domestic firms sell abroad at lower prices. The WTO restricts most export subsidies as they distort trade.</p>
+
+    <h4>4. Embargoes</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>An <strong>embargo</strong> is a complete ban on trade with a particular country or on a particular product. It is the most extreme form of protectionism and is typically imposed for political or security reasons. Example: US embargo on Cuba (1962–present); Western sanctions on Russian oil (2022).</p>
+    </div>
+
+    <h4>5. Administrative/Non-Tariff Barriers (NTBs)</h4>
+    <p style="color:var(--text2)">Regulations, standards, licensing requirements, customs procedures, and bureaucratic red tape that make importing more difficult or costly without imposing explicit tariffs. Examples: complex labelling requirements, health and safety standards, environmental regulations, buy-domestic government procurement policies.</p>
+
+    <h4>6. Voluntary Export Restraints (VERs)</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>VER</strong> is an agreement where an exporting country voluntarily limits the quantity of goods it exports to another country. Despite the name, VERs are usually imposed under pressure. Example: Japan's VER on car exports to the US in the 1980s.</p>
+    </div>
+
+    <h4>7. Exchange Rate Manipulation (Currency Manipulation)</h4>
+    <p style="color:var(--text2)">A government deliberately devalues its currency to make exports cheaper and imports more expensive. This acts as a hidden trade barrier. China has historically been accused of keeping the yuan undervalued to boost exports.</p>
+  </div>
+
+  <!-- Trade Agreements & Blocs -->
+  <div class="card reveal">
+    <h3>&#129309; Free Trade Agreements (FTAs)</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>Free Trade Agreement</strong> is a pact between two or more nations to reduce or eliminate barriers to trade (tariffs, quotas) on goods and services between them.</p>
+    </div>
+    <div class="grid-3" style="margin-top:1.5rem">
+      <div class="mini-card">
+        <h4>Bilateral FTA</h4>
+        <p>Between two countries. Example: US-South Korea FTA (KORUS), Australia-China FTA, Japan-UK CEPA.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Multilateral FTA</h4>
+        <p>Between multiple countries, often under WTO framework. Example: WTO agreements apply to 164 member nations.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Regional FTA</h4>
+        <p>Between countries in a specific geographic region. Example: USMCA (North America), ASEAN Free Trade Area, EU Single Market.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trade Blocs Spectrum -->
+  <div class="card reveal">
+    <h3>&#127760; Trade Blocs — Levels of Economic Integration</h3>
+    <p>Trade blocs represent different levels of economic integration between member countries, from loosest to tightest:</p>
+    <table class="styled-table" style="margin-top:1.5rem">
+      <thead>
+        <tr><th>Level</th><th>Description</th><th>Key Feature</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Preferential Trade Area (PTA)</strong></td>
+          <td>Members give each other preferential access (lower tariffs) but don't eliminate them entirely</td>
+          <td>Reduced tariffs between members</td>
+          <td>SAPTA (South Asian PTA)</td>
+        </tr>
+        <tr>
+          <td><strong>2. Free Trade Area (FTA)</strong></td>
+          <td>Tariffs and quotas are eliminated between member countries, but each maintains its own external tariffs against non-members</td>
+          <td>No internal tariffs; independent external tariffs</td>
+          <td>NAFTA/USMCA, EFTA, ASEAN FTA</td>
+        </tr>
+        <tr>
+          <td><strong>3. Customs Union</strong></td>
+          <td>Free trade among members PLUS a common external tariff (CET) applied to imports from non-member countries</td>
+          <td>Common External Tariff</td>
+          <td>EU Customs Union, Mercosur, SACU</td>
+        </tr>
+        <tr>
+          <td><strong>4. Common/Single Market</strong></td>
+          <td>A customs union PLUS free movement of factors of production — labour, capital, and enterprise can move freely between members</td>
+          <td>Free movement of goods, services, capital, and people</td>
+          <td>EU Single Market, EEA</td>
+        </tr>
+        <tr>
+          <td><strong>5. Economic Union</strong></td>
+          <td>A common market PLUS harmonisation of economic policies (fiscal, monetary, regulatory policies) among members</td>
+          <td>Harmonised economic policies</td>
+          <td>European Union</td>
+        </tr>
+        <tr>
+          <td><strong>6. Monetary Union</strong></td>
+          <td>An economic union PLUS a shared currency and unified monetary policy controlled by a single central bank</td>
+          <td>Single currency</td>
+          <td>Eurozone (EUR), CFA Franc Zone</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Major Trade Agreements -->
+  <div class="card reveal">
+    <h3>&#128196; Major Trade Agreements & Blocs</h3>
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>USMCA (formerly NAFTA)</h4>
+        <p><strong>Members:</strong> USA, Mexico, Canada<br><strong>Type:</strong> Free Trade Area<br>Replaced NAFTA in 2020. Covers $1.4 trillion in trade. Includes updated provisions for digital trade, intellectual property, and labour standards. Eliminated most tariffs on North American goods.</p>
+      </div>
+      <div class="mini-card">
+        <h4>European Union (EU)</h4>
+        <p><strong>Members:</strong> 27 countries<br><strong>Type:</strong> Economic & Monetary Union<br>The most advanced trade bloc. Features a single market with free movement of goods, services, capital, and people. 20 members share the euro. Has a common trade policy and customs union.</p>
+      </div>
+      <div class="mini-card">
+        <h4>ASEAN</h4>
+        <p><strong>Members:</strong> 10 Southeast Asian nations<br><strong>Type:</strong> Free Trade Area progressing toward Economic Community<br>Includes Indonesia, Thailand, Vietnam, Singapore, Philippines, Malaysia, Myanmar, Cambodia, Laos, Brunei. Combined GDP over $3.6 trillion.</p>
+      </div>
+      <div class="mini-card">
+        <h4>CPTPP (Trans-Pacific Partnership)</h4>
+        <p><strong>Members:</strong> 11 Pacific Rim countries<br><strong>Type:</strong> Multilateral FTA<br>Includes Japan, Canada, Australia, Mexico, Vietnam, and others. Covers 13.4% of global GDP. Comprehensive agreement covering goods, services, investment, IP, and digital trade.</p>
+      </div>
+      <div class="mini-card">
+        <h4>AfCFTA</h4>
+        <p><strong>Members:</strong> 54 African Union member states<br><strong>Type:</strong> Continental Free Trade Area<br>The world's largest free trade area by number of countries. Aims to boost intra-African trade from 15% to 25%+ by reducing tariffs on 90% of goods. Launched 2021.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Mercosur</h4>
+        <p><strong>Members:</strong> Brazil, Argentina, Uruguay, Paraguay<br><strong>Type:</strong> Customs Union<br>South America's largest trade bloc. Common external tariff. Negotiating EU-Mercosur FTA. Combined GDP over $2.4 trillion.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-container reveal">
+    <h3>&#128202; Trade Bloc Integration Levels (Degree of Integration)</h3>
+    <div class="chart-wrapper"><canvas id="chart-integration"></canvas></div>
+  </div>
+
+  <div class="chart-container reveal">
+    <h3>&#128202; Effect of a Tariff on Market Price & Quantity</h3>
+    <div class="chart-wrapper"><canvas id="chart-tariff"></canvas></div>
+    <p style="margin-top:1rem;color:var(--text2);font-size:0.9rem"><strong>Interpretation:</strong> The tariff shifts the effective supply curve upward, raising the domestic price from the free-trade price. This reduces consumer surplus (consumers pay more), increases producer surplus (domestic producers gain), generates government revenue (tariff revenue), but creates deadweight loss (economic inefficiency).</p>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: TRADE BALANCE / BALANCE OF PAYMENTS -->
+<!-- ============================================================ -->
+<section class="section" id="trade-balance">
+<div class="section-inner">
+  <div class="section-header reveal">
+    <div class="section-number">Section 03</div>
+    <h2 class="section-title">Trade Balance & Balance of Payments</h2>
+    <p class="section-subtitle">Understanding how countries track their economic transactions with the rest of the world — surpluses, deficits, and the J-Curve.</p>
+  </div>
+
+  <!-- Trade Balance Definition -->
+  <div class="card reveal">
+    <h3>&#128218; Trade Balance</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>trade balance</strong> (also called the <strong>balance of trade</strong> or <strong>net exports</strong>) is the difference between the monetary value of a country's exports and imports over a certain period. It is the largest component of the current account.</p>
+    </div>
+    <div class="formula">Trade Balance = Value of Exports &minus; Value of Imports</div>
+    <div class="grid-2" style="margin-top:1.5rem">
+      <div class="mini-card" style="border-left:3px solid var(--green)">
+        <h4>Trade Surplus <span class="badge badge-green">Exports > Imports</span></h4>
+        <p>When a country exports more than it imports. The trade balance is positive. Indicates strong international competitiveness. Examples: Germany, China, Japan. A surplus increases national income and builds foreign exchange reserves. However, persistent surpluses may indicate weak domestic demand or currency manipulation.</p>
+      </div>
+      <div class="mini-card" style="border-left:3px solid var(--red)">
+        <h4>Trade Deficit <span class="badge badge-red">Imports > Exports</span></h4>
+        <p>When a country imports more than it exports. The trade balance is negative. May indicate strong consumer demand, overvalued currency, or loss of competitiveness. Examples: USA, UK. Must be financed by borrowing, selling assets, or running down reserves. Not always negative — may reflect a growing economy with strong investment demand.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Balance of Payments -->
+  <div class="card reveal">
+    <h3>&#128203; Balance of Payments (BoP)</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>Balance of Payments</strong> is a comprehensive record of all economic transactions between residents of a country and the rest of the world over a specific period (usually a year or quarter). By definition, the BoP always balances — total debits equal total credits.</p>
+    </div>
+    <h4>Structure of the Balance of Payments</h4>
+    <table class="styled-table">
+      <thead>
+        <tr><th>Account</th><th>Component</th><th>What It Records</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><strong>Current Account</strong></td>
+          <td>Trade in Goods (Visible Trade)</td>
+          <td>Exports and imports of physical goods (machinery, oil, food, electronics). The trade balance.</td>
+        </tr>
+        <tr>
+          <td>Trade in Services (Invisible Trade)</td>
+          <td>Exports and imports of services: financial services, tourism, transport, consulting, insurance, royalties.</td>
+        </tr>
+        <tr>
+          <td>Primary Income</td>
+          <td>Income earned from foreign investments: wages, profits, dividends, interest. Includes compensation of employees working abroad.</td>
+        </tr>
+        <tr>
+          <td>Secondary Income (Current Transfers)</td>
+          <td>One-way transfers with no quid pro quo: foreign aid, remittances sent by workers abroad, EU budget contributions, pension payments.</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>Capital Account</strong></td>
+          <td>Capital Transfers</td>
+          <td>Debt forgiveness, migrant transfers (assets moving with migrants), EU structural funds. Relatively small.</td>
+        </tr>
+        <tr>
+          <td>Non-Produced, Non-Financial Assets</td>
+          <td>Purchase/sale of natural resources not produced (mineral rights, land by embassies), patents, copyrights, trademarks, franchises.</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>Financial Account</strong></td>
+          <td>Foreign Direct Investment (FDI)</td>
+          <td>Long-term investment where a foreign entity acquires a lasting interest (10%+ ownership) in a domestic enterprise. Building factories, acquiring companies.</td>
+        </tr>
+        <tr>
+          <td>Portfolio Investment</td>
+          <td>Purchase of foreign financial assets: stocks, bonds, derivatives. More liquid and short-term than FDI. Includes "hot money" flows.</td>
+        </tr>
+        <tr>
+          <td>Other Investment</td>
+          <td>Trade credits, loans, currency and deposits, other accounts receivable/payable between residents and non-residents.</td>
+        </tr>
+        <tr>
+          <td>Reserve Assets</td>
+          <td>Central bank holdings of foreign currency, gold, SDRs (Special Drawing Rights), IMF reserve position. Used to manage exchange rates and cover deficits.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="formula" style="margin-top:1rem">Current Account + Capital Account + Financial Account + Errors & Omissions = 0</div>
+    <p style="color:var(--text2);margin-top:1rem">A current account deficit must be financed by a capital/financial account surplus (borrowing from abroad or selling assets). Conversely, a current account surplus means the country is a net lender to the world.</p>
+  </div>
+
+  <!-- J-Curve -->
+  <div class="card reveal">
+    <h3>&#128200; The J-Curve Effect</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>J-Curve effect</strong> describes the tendency for a country's trade balance to initially worsen following a currency depreciation before eventually improving. The trade balance follows a J-shaped path over time.</p>
+    </div>
+    <h4>Why does this happen?</h4>
+    <ol style="color:var(--text2);padding-left:1.5rem;margin:1rem 0">
+      <li><strong>Short run (the dip):</strong> After depreciation, import prices rise immediately (imports are priced in foreign currency), but export volumes don't increase quickly because of existing contracts, production lags, and time to find new customers. Similarly, consumers don't immediately switch away from now-expensive imports. So the import bill rises while export revenue is slow to adjust — the trade balance worsens.</li>
+      <li><strong>Medium to long run (the recovery):</strong> Over time, demand responds to the new prices. Exports become cheaper for foreign buyers (volume rises). Imports become more expensive for domestic buyers (volume falls). Export revenue grows and import spending falls — the trade balance improves and eventually exceeds the pre-depreciation level.</li>
+    </ol>
+    <p style="color:var(--text2)">The J-Curve typically takes <strong>6–18 months</strong> to fully play out, depending on the price elasticity of demand for imports and exports.</p>
+  </div>
+
+  <!-- Marshall-Lerner Condition -->
+  <div class="card reveal">
+    <h3>&#128270; Marshall-Lerner Condition</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>Marshall-Lerner condition</strong> states that a currency depreciation will only improve the trade balance if the sum of the price elasticities of demand for exports and imports (in absolute values) is greater than one.</p>
+    </div>
+    <div class="formula">|PED<sub>exports</sub>| + |PED<sub>imports</sub>| > 1 &rarr; Depreciation improves trade balance</div>
+    <p style="color:var(--text2);margin-top:1rem">If demand for imports and exports is relatively price inelastic (sum < 1), then depreciation worsens the trade balance because the volume effect is too small to offset the price effect. In practice, the Marshall-Lerner condition is usually met in the long run but not in the short run — which explains the J-Curve.</p>
+  </div>
+
+  <!-- Twin Deficit -->
+  <div class="card reveal">
+    <h3>&#128101; Twin Deficit Hypothesis</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>twin deficit hypothesis</strong> suggests that a government budget deficit (fiscal deficit) leads to a current account deficit (trade deficit). The mechanism: government borrowing raises interest rates &#8594; attracts foreign capital &#8594; appreciates the currency &#8594; makes exports expensive and imports cheap &#8594; trade deficit widens.</p>
+    </div>
+    <div class="formula">Budget Deficit &uarr; &rarr; Interest Rates &uarr; &rarr; Capital Inflow &uarr; &rarr; Currency Appreciates &rarr; Trade Deficit &uarr;</div>
+    <p style="color:var(--text2);margin-top:1rem">The USA is a classic example — persistent budget deficits have coincided with large trade deficits. However, the relationship is debated; some countries (e.g., Japan) run budget deficits alongside trade surpluses.</p>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-container reveal">
+    <h3>&#128202; Trade Balance of Major Economies (USD Billions, 2024 est.)</h3>
+    <div class="chart-wrapper"><canvas id="chart-tradebal"></canvas></div>
+  </div>
+
+  <div class="chart-container reveal">
+    <h3>&#128202; The J-Curve Effect: Trade Balance After Currency Depreciation</h3>
+    <div class="chart-wrapper"><canvas id="chart-jcurve"></canvas></div>
+  </div>
+
+  <div class="chart-container reveal">
+    <h3>&#128202; Current Account Components — United States (2024 est.)</h3>
+    <div class="chart-wrapper"><canvas id="chart-ca-components"></canvas></div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: FOREIGN EXCHANGE (FOREX) -->
+<!-- ============================================================ -->
+<section class="section" id="forex">
+<div class="section-inner">
+  <div class="section-header reveal">
+    <div class="section-number">Section 04</div>
+    <h2 class="section-title">Foreign Exchange (Forex)</h2>
+    <p class="section-subtitle">The world's largest financial market — where currencies are traded, exchange rates are determined, and global capital flows.</p>
+  </div>
+
+  <!-- Definition -->
+  <div class="card reveal">
+    <h3>&#128218; Definition & Overview</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The <strong>foreign exchange market (forex or FX market)</strong> is a global, decentralised marketplace where currencies are traded. It determines exchange rates for every currency in the world. With a daily turnover exceeding <strong>$7.5 trillion</strong> (BIS 2022), it is by far the largest and most liquid financial market on Earth.</p>
+    </div>
+    <h4>Key Characteristics of the Forex Market</h4>
+    <div class="grid-3" style="margin-top:1rem">
+      <div class="mini-card">
+        <div class="icon">&#127760;</div>
+        <h4>Decentralised (OTC)</h4>
+        <p>No central exchange. Trading occurs electronically over-the-counter (OTC) between banks, institutions, and traders worldwide. Major centres: London (38%), New York (19%), Singapore (9%), Hong Kong (7%), Tokyo (5%).</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#9200;</div>
+        <h4>24-Hour Market</h4>
+        <p>Open 24 hours a day, 5 days a week. Trading follows the sun: Sydney opens first, then Tokyo, London, and New York. Only closed on weekends. Allows continuous price discovery.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128167;</div>
+        <h4>Most Liquid Market</h4>
+        <p>$7.5 trillion daily turnover dwarfs stock markets ($200B/day). Major currency pairs can be traded in massive volumes with minimal price impact. Tight bid-ask spreads.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128101;</div>
+        <h4>Diverse Participants</h4>
+        <p>Central banks, commercial banks, hedge funds, corporations, pension funds, retail traders. Central banks are the most influential through monetary policy and intervention.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128177;</div>
+        <h4>Currency Pairs</h4>
+        <p>Currencies are always traded in pairs (EUR/USD, GBP/JPY). The first currency is the base; the second is the quote. The exchange rate shows how much quote currency is needed to buy one unit of the base currency.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#9878;&#65039;</div>
+        <h4>Leverage Available</h4>
+        <p>Forex brokers offer leverage up to 500:1. A small deposit controls a large position. This magnifies both profits and losses, making forex highly risky for retail traders.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exchange Rate Definition -->
+  <div class="card reveal">
+    <h3>&#128177; Exchange Rates</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>An <strong>exchange rate</strong> is the price of one currency expressed in terms of another currency. It tells you how much of one currency you can exchange for another. For example, if EUR/USD = 1.10, then 1 euro can be exchanged for 1.10 US dollars.</p>
+    </div>
+    <div class="grid-2" style="margin-top:1.5rem">
+      <div class="mini-card">
+        <h4>Nominal Exchange Rate</h4>
+        <p>The rate at which one currency can be exchanged for another at the current moment. This is the rate you see on screens, at banks, and in the news. It does not account for differences in price levels between countries.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Real Exchange Rate</h4>
+        <p>The nominal exchange rate adjusted for differences in price levels (inflation) between two countries. Measures the true purchasing power of a currency. A rising real exchange rate means a country's goods are becoming more expensive relative to foreign goods.</p>
+      </div>
+    </div>
+    <div class="formula" style="margin-top:1rem">Real Exchange Rate = Nominal Rate &times; (Domestic Price Level &divide; Foreign Price Level)</div>
+  </div>
+
+  <!-- Exchange Rate Systems -->
+  <div class="card reveal">
+    <h3>&#9878;&#65039; Exchange Rate Systems</h3>
+    <p>Countries choose how to manage their currency's value. The main systems are:</p>
+
+    <h4>1. Free Floating Exchange Rate</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The exchange rate is determined entirely by market forces of supply and demand with <strong>no government intervention</strong>. The currency's value fluctuates freely based on trade flows, investment flows, and speculation.</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>&#9989; Advantages</h4>
+        <ul>
+          <li>Automatic adjustment of trade imbalances (deficit → depreciation → cheaper exports → balance improves)</li>
+          <li>No need to hold large foreign exchange reserves</li>
+          <li>Monetary policy independence — free to set interest rates for domestic goals</li>
+          <li>Insulates economy from external shocks</li>
+          <li>No need for capital controls</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>&#10060; Disadvantages</h4>
+        <ul>
+          <li>Exchange rate volatility creates uncertainty for trade and investment</li>
+          <li>Speculation can cause destabilising fluctuations</li>
+          <li>Imported inflation when currency depreciates</li>
+          <li>May not correct trade deficits if Marshall-Lerner condition not met</li>
+          <li>Can amplify economic shocks</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Examples:</strong> US Dollar, Euro, British Pound, Japanese Yen, Australian Dollar</p>
+
+    <h4>2. Fixed (Pegged) Exchange Rate</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The government or central bank sets and maintains the currency's value at a fixed rate against another currency (usually USD), a basket of currencies, or gold. The central bank actively intervenes by buying/selling its currency to maintain the peg.</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>&#9989; Advantages</h4>
+        <ul>
+          <li>Certainty and stability for trade and investment</li>
+          <li>Reduces exchange rate risk for businesses</li>
+          <li>Controls inflation by anchoring to a stable currency</li>
+          <li>Prevents competitive devaluation</li>
+          <li>Disciplines monetary policy</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>&#10060; Disadvantages</h4>
+        <ul>
+          <li>Requires large foreign exchange reserves to defend the peg</li>
+          <li>Loss of monetary policy independence (must match anchor country's policy)</li>
+          <li>Rate may become overvalued or undervalued over time</li>
+          <li>Vulnerable to speculative attacks (see 1992 ERM crisis)</li>
+          <li>No automatic adjustment of trade imbalances</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Examples:</strong> Hong Kong Dollar (pegged to USD), Saudi Riyal (pegged to USD), Danish Krone (pegged to EUR)</p>
+
+    <h4>3. Managed Float (Dirty Float)</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>The exchange rate is primarily determined by market forces but the central bank <strong>occasionally intervenes</strong> to smooth out excessive volatility or prevent the rate from moving too far from a desired level. Most major currencies effectively operate under a managed float.</p>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Examples:</strong> Indian Rupee, Chinese Yuan (to some extent), Singapore Dollar. The Bank of Japan has intervened multiple times in the yen market.</p>
+
+    <h4>4. Crawling Peg</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A system where the exchange rate is fixed but adjusted periodically (typically by small amounts) to account for inflation differentials or other economic fundamentals. Combines some stability with flexibility.</p>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Examples:</strong> China used a crawling peg from 2005–2015. Botswana uses a crawling peg against a basket of currencies.</p>
+
+    <h4>5. Currency Board</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>An extreme form of fixed exchange rate where the domestic currency is 100% backed by foreign reserves. The monetary authority can only issue domestic currency when it has equivalent foreign currency. This ensures absolute credibility of the peg but completely eliminates monetary policy independence.</p>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Examples:</strong> Hong Kong Monetary Authority (HKD pegged to USD at 7.80), Bulgaria (BGN pegged to EUR)</p>
+
+    <h4>6. Dollarisation</h4>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p><strong>Dollarisation</strong> (or euroisation) is when a country abandons its own currency entirely and adopts a foreign currency (usually the US dollar) as legal tender. The country gives up all monetary policy independence but gains complete exchange rate stability with the anchor country.</p>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Examples:</strong> Ecuador (adopted USD in 2000), Panama, El Salvador, Zimbabwe (multicurrency). Kosovo and Montenegro use the euro without being EU members.</p>
+  </div>
+
+  <!-- Factors Affecting Exchange Rates -->
+  <div class="card reveal">
+    <h3>&#128200; Factors Affecting Exchange Rates</h3>
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>&#128181; Interest Rates</h4>
+        <p>Higher interest rates attract foreign capital seeking higher returns (hot money flows). This increases demand for the currency, causing it to appreciate. Central bank rate decisions are the most closely watched events in forex markets. Relationship: Interest rates &uarr; &rarr; Currency &uarr;</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#128200; Inflation Rates</h4>
+        <p>A country with lower inflation than its trading partners will see its currency appreciate because its goods remain relatively cheap (competitive exports). High inflation erodes purchasing power and weakens the currency. Relationship: Inflation &uarr; &rarr; Currency &darr;</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#128203; Current Account Balance</h4>
+        <p>A current account deficit means a country is spending more on foreign trade than it earns — net outflow of domestic currency. This increases supply of the currency on forex markets, causing depreciation. Surplus does the opposite.</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#127970; Government Debt</h4>
+        <p>High public debt can cause inflation fears and reduce foreign investor confidence. Countries with high debt may struggle to attract foreign capital, weakening their currency. Risk of monetisation (printing money to pay debt) further erodes confidence.</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#128202; Economic Performance (GDP Growth)</h4>
+        <p>Strong economic growth attracts foreign investment (both FDI and portfolio), increasing demand for the currency. Growing economies offer better returns on investment. A recession typically weakens the currency.</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#127963;&#65039; Political Stability</h4>
+        <p>Countries with stable governments, rule of law, and predictable policies attract more foreign investment. Political turmoil, elections, coups, or policy uncertainty cause capital flight and currency weakness.</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#128176; Speculation</h4>
+        <p>If traders believe a currency will strengthen, they buy it — increasing demand and causing it to actually strengthen (self-fulfilling prophecy). Speculative flows can dominate short-term exchange rate movements. George Soros famously speculated against the pound in 1992.</p>
+      </div>
+      <div class="mini-card">
+        <h4>&#128230; Terms of Trade</h4>
+        <p>If a country's export prices rise relative to its import prices (improving ToT), its currency tends to appreciate because each unit of exports buys more imports — demand for the currency increases.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Appreciation vs Depreciation -->
+  <div class="card reveal">
+    <h3>&#128199; Currency Appreciation vs Depreciation</h3>
+    <table class="styled-table">
+      <thead>
+        <tr><th>Aspect</th><th>Appreciation (Currency Strengthens)</th><th>Depreciation (Currency Weakens)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Definition</strong></td><td>The currency increases in value relative to other currencies under a floating system</td><td>The currency decreases in value relative to other currencies under a floating system</td></tr>
+        <tr><td><strong>Fixed Rate Equivalent</strong></td><td>Revaluation (official increase in value)</td><td>Devaluation (official decrease in value)</td></tr>
+        <tr><td><strong>Effect on Exports</strong></td><td>Exports become more expensive for foreign buyers → export volume falls</td><td>Exports become cheaper for foreign buyers → export volume rises</td></tr>
+        <tr><td><strong>Effect on Imports</strong></td><td>Imports become cheaper → import volume rises</td><td>Imports become more expensive → import volume falls</td></tr>
+        <tr><td><strong>Effect on Inflation</strong></td><td>Reduces imported inflation (cheaper imports)</td><td>Increases imported inflation (costlier imports)</td></tr>
+        <tr><td><strong>Effect on Trade Balance</strong></td><td>Tends to worsen (if Marshall-Lerner met)</td><td>Tends to improve (if Marshall-Lerner met, after J-Curve delay)</td></tr>
+        <tr><td><strong>Effect on Economic Growth</strong></td><td>May slow growth (reduced export competitiveness)</td><td>May boost growth (increased export competitiveness)</td></tr>
+        <tr><td><strong>Causes</strong></td><td>Higher interest rates, trade surplus, capital inflows, strong GDP growth, low inflation</td><td>Lower interest rates, trade deficit, capital outflows, high inflation, weak economy</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PPP -->
+  <div class="card reveal">
+    <h3>&#127828; Purchasing Power Parity (PPP)</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p><strong>Purchasing Power Parity (PPP)</strong> is an economic theory that states exchange rates between currencies should adjust so that an identical basket of goods costs the same in every country when expressed in a common currency. In other words, a dollar should buy the same amount of goods anywhere in the world.</p>
+    </div>
+    <h4>Absolute PPP</h4>
+    <p style="color:var(--text2)">The exchange rate between two countries equals the ratio of their price levels. If a basket of goods costs $100 in the US and &pound;80 in the UK, the PPP exchange rate is 1.25 USD/GBP.</p>
+    <div class="formula">Exchange Rate = Price Level (Domestic) &divide; Price Level (Foreign)</div>
+    <h4>Relative PPP</h4>
+    <p style="color:var(--text2)">The rate of change in the exchange rate equals the difference in inflation rates between two countries. If US inflation is 3% and UK inflation is 1%, the dollar should depreciate by approximately 2% against the pound.</p>
+    <h4>The Big Mac Index</h4>
+    <p style="color:var(--text2);margin-top:0.5rem">Created by <em>The Economist</em> in 1986, the <strong>Big Mac Index</strong> is a lighthearted way to measure PPP. It compares the price of a McDonald's Big Mac across countries. If a Big Mac costs $5.58 in the US and &pound;3.69 in the UK, the implied PPP rate is 1.51 USD/GBP. Comparing this to the actual exchange rate shows whether a currency is over- or undervalued. While simplified, it has become a widely cited indicator.</p>
+  </div>
+
+  <!-- Forex Market Participants -->
+  <div class="card reveal">
+    <h3>&#128101; Forex Market Participants</h3>
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="icon">&#127974;</div>
+        <h4>Central Banks</h4>
+        <p>The most influential players. Manage monetary policy, set interest rates, and intervene in forex markets to stabilise their currency. Hold foreign exchange reserves. Examples: Federal Reserve, ECB, Bank of England, Bank of Japan, People's Bank of China.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#127970;</div>
+        <h4>Commercial Banks</h4>
+        <p>Handle the largest volume of forex transactions. Trade currencies on behalf of clients and for their own accounts (proprietary trading). Form the interbank market — the core of the forex market. Major players: JP Morgan, Deutsche Bank, Citi, UBS.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128188;</div>
+        <h4>Hedge Funds & Investment Managers</h4>
+        <p>Trade currencies for speculative profit or to hedge portfolio risk. Use leverage and sophisticated strategies. Can move markets significantly. George Soros's Quantum Fund famously made $1 billion shorting the British pound in 1992.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#127981;</div>
+        <h4>Multinational Corporations</h4>
+        <p>Need forex for international trade and operations. A US company importing from Japan must convert USD to JPY. Corporations use forward contracts and options to hedge against exchange rate risk.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#128100;</div>
+        <h4>Retail Traders</h4>
+        <p>Individual traders accessing the market through online brokers. A small but growing segment. Trade on margin with leverage. High risk — estimated 70-80% of retail forex traders lose money.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">&#127758;</div>
+        <h4>Governments & Sovereign Wealth Funds</h4>
+        <p>Governments exchange currencies for trade, debt payments, and reserve management. Sovereign wealth funds (e.g., Norway's Government Pension Fund, Abu Dhabi Investment Authority) invest globally, creating large currency flows.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Foreign Exchange Reserves -->
+  <div class="card reveal">
+    <h3>&#128176; Foreign Exchange Reserves</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p><strong>Foreign exchange reserves</strong> are assets held by a central bank in foreign currencies, used to back the domestic currency, influence monetary policy, manage exchange rates, and ensure the country can meet its international obligations. They typically include foreign currency deposits, government bonds, gold, and IMF Special Drawing Rights (SDRs).</p>
+    </div>
+    <h4>Purpose of Reserves</h4>
+    <ul style="color:var(--text2);padding-left:1.5rem;margin:0.5rem 0">
+      <li><strong>Defend the exchange rate</strong> — intervene in forex markets by selling reserves to buy domestic currency</li>
+      <li><strong>Maintain confidence</strong> — signal ability to meet external obligations</li>
+      <li><strong>Cover imports</strong> — typically countries aim for 3+ months of import cover</li>
+      <li><strong>Service foreign debt</strong> — ensure ability to repay dollar-denominated debts</li>
+      <li><strong>Buffer against shocks</strong> — protect against sudden capital outflows or crises</li>
+    </ul>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Top holders (2024):</strong> China ($3.2T), Japan ($1.3T), Switzerland ($800B), India ($640B), Russia ($580B).</p>
+  </div>
+
+  <!-- Currency Crises -->
+  <div class="card reveal">
+    <h3>&#9888;&#65039; Currency Crises</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>currency crisis</strong> occurs when a currency experiences a sharp, sudden depreciation, often triggered by speculative attacks, loss of investor confidence, or unsustainable economic policies. Central banks may exhaust reserves trying to defend the currency.</p>
+    </div>
+    <div class="timeline" style="margin-top:1.5rem">
+      <div class="timeline-item">
+        <h4>1992 — European Exchange Rate Mechanism (ERM) Crisis</h4>
+        <p>George Soros bet against the British pound, forcing the UK to withdraw from the ERM. The pound devalued 15%. Known as "Black Wednesday." Soros made $1 billion profit.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>1994 — Mexican Peso Crisis (Tequila Crisis)</h4>
+        <p>Mexico's peso collapsed after the government abandoned its peg to the dollar. Caused by over-reliance on short-term capital inflows and political instability. Required a $50 billion IMF/US bailout.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>1997 — Asian Financial Crisis</h4>
+        <p>Started with the collapse of the Thai baht. Spread to Indonesia, South Korea, Malaysia, and the Philippines. Caused by excessive short-term foreign borrowing, weak financial systems, and fixed exchange rates. The Indonesian rupiah lost 80% of its value. IMF provided $40 billion in bailouts.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>1998 — Russian Financial Crisis</h4>
+        <p>Russia defaulted on domestic debt and devalued the ruble. Triggered by falling oil prices, fiscal deficits, and contagion from the Asian crisis. The ruble lost 70% of its value in weeks.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>2001 — Argentine Peso Crisis</h4>
+        <p>Argentina abandoned its currency board (1:1 peso-dollar peg) after economic recession and massive capital flight. The peso lost 75% of its value. Triggered the largest sovereign default in history at the time ($100 billion).</p>
+      </div>
+      <div class="timeline-item">
+        <h4>2018 — Turkish Lira Crisis</h4>
+        <p>The lira lost 30% of its value against the dollar amid high inflation, large current account deficit, political tensions with the US, and concerns about central bank independence.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hot Money -->
+  <div class="card reveal">
+    <h3>&#128293; Hot Money Flows</h3>
+    <div class="def-box">
+      <div class="def-label">Definition</div>
+      <p><strong>Hot money</strong> refers to short-term, speculative capital flows that move rapidly between countries to exploit interest rate differentials, exchange rate movements, or other profit opportunities. Hot money is highly liquid and can enter or leave a country very quickly.</p>
+    </div>
+    <p style="color:var(--text2);margin-top:0.5rem"><strong>Causes:</strong> Interest rate differentials (carry trade), exchange rate expectations, risk appetite changes, political events. <strong>Risks:</strong> Creates asset bubbles on inflow, financial instability on sudden outflow, exchange rate volatility, makes monetary policy difficult. Developing countries are particularly vulnerable to hot money flows.</p>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-container reveal">
+    <h3>&#128202; Currency Supply & Demand — Equilibrium Exchange Rate</h3>
+    <div class="chart-wrapper"><canvas id="chart-forex-sd"></canvas></div>
+    <p style="margin-top:1rem;color:var(--text2);font-size:0.9rem"><strong>Interpretation:</strong> The equilibrium exchange rate is determined where the demand for a currency equals its supply. Demand comes from exports, FDI inflows, and speculation. Supply comes from imports, capital outflows, and selling the currency. Shifts in either curve change the equilibrium rate.</p>
+  </div>
+
+  <div class="chart-container reveal">
+    <h3>&#128202; USD/EUR Exchange Rate Trend (Illustrative, 2019-2024)</h3>
+    <div class="chart-wrapper"><canvas id="chart-usdeur"></canvas></div>
+  </div>
+
+  <div class="chart-container reveal">
+    <h3>&#128202; Impact of Interest Rate Increase on Exchange Rate</h3>
+    <div class="chart-wrapper"><canvas id="chart-interest-fx"></canvas></div>
+    <p style="margin-top:1rem;color:var(--text2);font-size:0.9rem"><strong>Interpretation:</strong> When a country raises interest rates, foreign capital flows in seeking higher returns (demand for currency increases / demand curve shifts right). This causes the currency to appreciate from E1 to E2.</p>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: GLOSSARY -->
+<!-- ============================================================ -->
+<section class="section" id="glossary">
+<div class="section-inner">
+  <div class="section-header reveal">
+    <div class="section-number">Section 05</div>
+    <h2 class="section-title">Key Terms Glossary</h2>
+    <p class="section-subtitle">A comprehensive A–Z reference of every important term in international trade, free trade, trade balance, and foreign exchange.</p>
+  </div>
+
+  <div class="glossary-grid reveal">
+    <div class="glossary-item"><dt>Absolute Advantage</dt><dd>The ability of a country to produce a good using fewer resources (inputs) than another country. Concept introduced by Adam Smith.</dd></div>
+    <div class="glossary-item"><dt>Ad Valorem Tariff</dt><dd>A tariff calculated as a percentage of the value of the imported good. E.g., 15% on the value of imported electronics.</dd></div>
+    <div class="glossary-item"><dt>Appreciation</dt><dd>An increase in the value of a currency relative to other currencies under a floating exchange rate system.</dd></div>
+    <div class="glossary-item"><dt>Balance of Payments (BoP)</dt><dd>A record of all economic transactions between residents of a country and the rest of the world in a given period. Comprises the current, capital, and financial accounts.</dd></div>
+    <div class="glossary-item"><dt>Balance of Trade</dt><dd>The difference between the value of a country's exports and imports of goods. Also called net exports or visible trade balance.</dd></div>
+    <div class="glossary-item"><dt>Bilateral Trade</dt><dd>Trade between two countries. A bilateral trade agreement involves only two parties.</dd></div>
+    <div class="glossary-item"><dt>Capital Account</dt><dd>Part of the BoP recording capital transfers and transactions in non-produced, non-financial assets (e.g., patents, mineral rights).</dd></div>
+    <div class="glossary-item"><dt>Capital Flight</dt><dd>Large-scale movement of financial assets and capital out of a country due to economic or political instability.</dd></div>
+    <div class="glossary-item"><dt>Carry Trade</dt><dd>A forex strategy where investors borrow in a low-interest currency and invest in a high-interest currency to profit from the interest rate differential.</dd></div>
+    <div class="glossary-item"><dt>Common External Tariff (CET)</dt><dd>A uniform tariff rate applied by all members of a customs union on imports from non-member countries.</dd></div>
+    <div class="glossary-item"><dt>Common Market</dt><dd>A customs union with the additional feature of free movement of factors of production (labour, capital) between members.</dd></div>
+    <div class="glossary-item"><dt>Comparative Advantage</dt><dd>The ability of a country to produce a good at a lower opportunity cost than another country. The basis of modern trade theory (David Ricardo).</dd></div>
+    <div class="glossary-item"><dt>Crawling Peg</dt><dd>An exchange rate system where the fixed rate is adjusted periodically in small increments to reflect economic conditions.</dd></div>
+    <div class="glossary-item"><dt>Currency Board</dt><dd>A monetary authority that maintains a fixed exchange rate with a foreign currency, backed 100% by foreign reserves.</dd></div>
+    <div class="glossary-item"><dt>Currency Crisis</dt><dd>A sharp, sudden depreciation of a currency, often involving speculative attacks and depletion of central bank reserves.</dd></div>
+    <div class="glossary-item"><dt>Current Account</dt><dd>The BoP component recording trade in goods and services, primary income, and secondary income (transfers).</dd></div>
+    <div class="glossary-item"><dt>Customs Union</dt><dd>A trade bloc where members eliminate tariffs between each other and apply a common external tariff to non-members.</dd></div>
+    <div class="glossary-item"><dt>Depreciation</dt><dd>A decrease in the value of a currency relative to other currencies under a floating exchange rate system.</dd></div>
+    <div class="glossary-item"><dt>Devaluation</dt><dd>A deliberate downward adjustment of a currency's value by the government under a fixed exchange rate system.</dd></div>
+    <div class="glossary-item"><dt>Dollarisation</dt><dd>When a country adopts a foreign currency (typically the US dollar) as its official currency, abandoning its own.</dd></div>
+    <div class="glossary-item"><dt>Dumping</dt><dd>Selling goods in a foreign market at a price below the cost of production or below the domestic market price, often to drive out competitors.</dd></div>
+    <div class="glossary-item"><dt>Economic Union</dt><dd>A common market with the additional harmonisation of economic policies (fiscal, monetary, regulatory) among members.</dd></div>
+    <div class="glossary-item"><dt>Embargo</dt><dd>A complete government ban on trade with a particular country or in a specific product category.</dd></div>
+    <div class="glossary-item"><dt>Entrepot Trade</dt><dd>Importing goods into a country for the purpose of re-exporting them, often after processing or repackaging.</dd></div>
+    <div class="glossary-item"><dt>Exchange Rate</dt><dd>The price of one currency expressed in terms of another currency.</dd></div>
+    <div class="glossary-item"><dt>Export</dt><dd>A good or service produced domestically and sold to a foreign buyer.</dd></div>
+    <div class="glossary-item"><dt>Factor Endowments</dt><dd>The quantity and quality of factors of production (land, labour, capital, enterprise) available to a country.</dd></div>
+    <div class="glossary-item"><dt>Financial Account</dt><dd>The BoP component recording transactions in financial assets: FDI, portfolio investment, other investments, and reserves.</dd></div>
+    <div class="glossary-item"><dt>Fixed Exchange Rate</dt><dd>A system where the government/central bank sets and maintains the currency's value at a specific rate against another currency.</dd></div>
+    <div class="glossary-item"><dt>Floating Exchange Rate</dt><dd>A system where the currency's value is determined by market forces of supply and demand without government intervention.</dd></div>
+    <div class="glossary-item"><dt>Foreign Direct Investment (FDI)</dt><dd>Long-term investment where a foreign entity acquires a lasting interest (10%+ ownership stake) in a domestic enterprise.</dd></div>
+    <div class="glossary-item"><dt>Foreign Exchange Reserves</dt><dd>Assets held by a central bank in foreign currencies to manage exchange rates and meet international payment obligations.</dd></div>
+    <div class="glossary-item"><dt>Free Trade</dt><dd>A policy where governments do not discriminate against imports or interfere with exports through tariffs, quotas, or other restrictions.</dd></div>
+    <div class="glossary-item"><dt>Free Trade Area (FTA)</dt><dd>A trade bloc where members eliminate tariffs among themselves but each maintains its own external tariff policy.</dd></div>
+    <div class="glossary-item"><dt>GATT</dt><dd>General Agreement on Tariffs and Trade. A multilateral treaty (1947–1994) aimed at reducing tariffs and trade barriers. Replaced by the WTO.</dd></div>
+    <div class="glossary-item"><dt>Heckscher-Ohlin Model</dt><dd>A trade theory stating that countries export goods that use their abundant factors of production intensively.</dd></div>
+    <div class="glossary-item"><dt>Hot Money</dt><dd>Short-term, speculative capital flows that move rapidly between countries seeking the highest short-term returns.</dd></div>
+    <div class="glossary-item"><dt>Import</dt><dd>A good or service produced in a foreign country and purchased by domestic buyers.</dd></div>
+    <div class="glossary-item"><dt>Infant Industry Argument</dt><dd>The argument that new domestic industries need temporary protection from foreign competition until they achieve economies of scale and competitiveness.</dd></div>
+    <div class="glossary-item"><dt>J-Curve Effect</dt><dd>The tendency for a country's trade balance to initially worsen after a currency depreciation before eventually improving.</dd></div>
+    <div class="glossary-item"><dt>Managed Float</dt><dd>An exchange rate system where the rate is primarily market-determined but with occasional central bank intervention. Also called a "dirty float."</dd></div>
+    <div class="glossary-item"><dt>Marshall-Lerner Condition</dt><dd>States that depreciation improves the trade balance only if the sum of price elasticities of demand for exports and imports exceeds one.</dd></div>
+    <div class="glossary-item"><dt>Mercantilism</dt><dd>An early economic theory that a nation's wealth is measured by its stock of gold/silver, promoting exports over imports.</dd></div>
+    <div class="glossary-item"><dt>Monetary Union</dt><dd>An economic union where members share a common currency and unified monetary policy. Example: the Eurozone.</dd></div>
+    <div class="glossary-item"><dt>Most Favoured Nation (MFN)</dt><dd>A WTO principle requiring that any trade advantage given to one WTO member must be extended to all members.</dd></div>
+    <div class="glossary-item"><dt>Multilateral Trade</dt><dd>Trade agreements or negotiations involving three or more countries, often conducted under the WTO framework.</dd></div>
+    <div class="glossary-item"><dt>Nominal Exchange Rate</dt><dd>The rate at which one currency can be exchanged for another at current market prices, without adjusting for inflation.</dd></div>
+    <div class="glossary-item"><dt>Non-Tariff Barriers (NTBs)</dt><dd>Trade restrictions other than tariffs: quotas, subsidies, regulations, standards, licensing, bureaucratic procedures.</dd></div>
+    <div class="glossary-item"><dt>Opportunity Cost</dt><dd>The value of the next best alternative foregone when making a choice. Central to comparative advantage theory.</dd></div>
+    <div class="glossary-item"><dt>Portfolio Investment</dt><dd>Purchase of foreign financial assets (stocks, bonds) that do not involve management control (less than 10% ownership).</dd></div>
+    <div class="glossary-item"><dt>Preferential Trade Area (PTA)</dt><dd>A trade agreement where members give each other preferential access through reduced (but not zero) tariffs.</dd></div>
+    <div class="glossary-item"><dt>Protectionism</dt><dd>Government policies that restrict international trade to protect domestic industries from foreign competition.</dd></div>
+    <div class="glossary-item"><dt>Purchasing Power Parity (PPP)</dt><dd>A theory that exchange rates should adjust so identical goods cost the same in every country when expressed in a common currency.</dd></div>
+    <div class="glossary-item"><dt>Quota</dt><dd>A quantitative restriction on the amount of a specific good that can be imported during a given period.</dd></div>
+    <div class="glossary-item"><dt>Real Exchange Rate</dt><dd>The nominal exchange rate adjusted for relative price levels between countries, reflecting true purchasing power.</dd></div>
+    <div class="glossary-item"><dt>Revaluation</dt><dd>A deliberate upward adjustment of a currency's value by the government under a fixed exchange rate system.</dd></div>
+    <div class="glossary-item"><dt>Special Drawing Rights (SDRs)</dt><dd>An international reserve asset created by the IMF, based on a basket of currencies (USD, EUR, GBP, JPY, CNY).</dd></div>
+    <div class="glossary-item"><dt>Specific Tariff</dt><dd>A fixed monetary charge per unit of an imported good, regardless of its value. E.g., $5 per kilogram.</dd></div>
+    <div class="glossary-item"><dt>Subsidy</dt><dd>A financial contribution by the government to domestic producers to reduce costs and increase competitiveness against imports.</dd></div>
+    <div class="glossary-item"><dt>Tariff</dt><dd>A tax imposed on imported goods, raising their price and making domestic alternatives more competitive.</dd></div>
+    <div class="glossary-item"><dt>Terms of Trade (ToT)</dt><dd>The ratio of export prices to import prices, measuring how many imports a country can buy per unit of exports.</dd></div>
+    <div class="glossary-item"><dt>Trade Balance</dt><dd>The difference between a country's total exports and total imports (Exports – Imports).</dd></div>
+    <div class="glossary-item"><dt>Trade Bloc</dt><dd>A group of countries that have agreed to reduce or eliminate trade barriers among themselves.</dd></div>
+    <div class="glossary-item"><dt>Trade Creation</dt><dd>When joining a trade bloc allows members to replace expensive domestic production with cheaper imports from a partner country.</dd></div>
+    <div class="glossary-item"><dt>Trade Deficit</dt><dd>When a country's imports exceed its exports (negative trade balance).</dd></div>
+    <div class="glossary-item"><dt>Trade Diversion</dt><dd>When joining a trade bloc causes members to switch from a cheaper external supplier to a more expensive member supplier (due to tariff preferences).</dd></div>
+    <div class="glossary-item"><dt>Trade Surplus</dt><dd>When a country's exports exceed its imports (positive trade balance).</dd></div>
+    <div class="glossary-item"><dt>Twin Deficit Hypothesis</dt><dd>The theory that a government budget deficit leads to a current account (trade) deficit through higher interest rates and currency appreciation.</dd></div>
+    <div class="glossary-item"><dt>Voluntary Export Restraint (VER)</dt><dd>An agreement where an exporting country voluntarily limits the quantity of goods exported to a partner country.</dd></div>
+    <div class="glossary-item"><dt>World Trade Organisation (WTO)</dt><dd>An international organisation (est. 1995) that regulates global trade rules, resolves trade disputes, and promotes free trade. 164 members.</dd></div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:var(--accent)">TradeGuide</strong> — The Complete Guide to Global Trade & Foreign Exchange</p>
+  <p style="margin-top:0.5rem">Built for comprehensive study. All data is illustrative and for educational purposes.</p>
+</footer>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT: CHARTS & ANIMATIONS -->
+<!-- ============================================================ -->
+<script>
+// =============================================
+// SCROLL REVEAL ANIMATION
+// =============================================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// =============================================
+// ACTIVE NAV HIGHLIGHTING
+// =============================================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav ul li a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (scrollY >= sectionTop) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+
+// =============================================
+// CHART DEFAULTS
+// =============================================
+Chart.defaults.color = '#94a3b8';
+Chart.defaults.borderColor = 'rgba(71,85,105,0.3)';
+Chart.defaults.font.family = 'Inter';
+
+// =============================================
+// CHART 1: Top Exporting Nations
+// =============================================
+new Chart(document.getElementById('chart-exports'), {
+  type: 'bar',
+  data: {
+    labels: ['China', 'USA', 'Germany', 'Netherlands', 'Japan', 'South Korea', 'France', 'Italy', 'UK', 'Canada'],
+    datasets: [{
+      label: 'Exports (USD Billions)',
+      data: [3600, 2050, 1810, 940, 920, 690, 640, 620, 530, 510],
+      backgroundColor: ['#f59e0b','#3b82f6','#10b981','#8b5cf6','#ef4444','#14b8a6','#f97316','#ec4899','#6366f1','#a855f7'],
+      borderRadius: 8,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => '$' + ctx.parsed.y + 'B' } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'USD Billions' }, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// =============================================
+// CHART 2: Trade Bloc Integration Levels
+// =============================================
+new Chart(document.getElementById('chart-integration'), {
+  type: 'bar',
+  data: {
+    labels: ['Preferential\nTrade Area', 'Free Trade\nArea', 'Customs\nUnion', 'Common\nMarket', 'Economic\nUnion', 'Monetary\nUnion'],
+    datasets: [
+      { label: 'Reduced Tariffs', data: [1,1,1,1,1,1], backgroundColor: 'rgba(245,158,11,0.8)', borderRadius: 4 },
+      { label: 'Zero Internal Tariffs', data: [0,1,1,1,1,1], backgroundColor: 'rgba(59,130,246,0.8)', borderRadius: 4 },
+      { label: 'Common External Tariff', data: [0,0,1,1,1,1], backgroundColor: 'rgba(16,185,129,0.8)', borderRadius: 4 },
+      { label: 'Free Factor Movement', data: [0,0,0,1,1,1], backgroundColor: 'rgba(139,92,246,0.8)', borderRadius: 4 },
+      { label: 'Policy Harmonisation', data: [0,0,0,0,1,1], backgroundColor: 'rgba(236,72,153,0.8)', borderRadius: 4 },
+      { label: 'Single Currency', data: [0,0,0,0,0,1], backgroundColor: 'rgba(239,68,68,0.8)', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } } },
+    scales: {
+      y: { beginAtZero: true, max: 6.5, title: { display: true, text: 'Features Included' }, stacked: true, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { stacked: true, grid: { display: false } }
+    }
+  }
+});
+
+// =============================================
+// CHART 3: Tariff Effect (Supply & Demand style)
+// =============================================
+new Chart(document.getElementById('chart-tariff'), {
+  type: 'line',
+  data: {
+    labels: ['0','50','100','150','200','250','300','350','400'],
+    datasets: [
+      { label: 'Demand', data: [90,80,70,60,50,40,30,20,10], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', fill: true, tension: 0.3, pointRadius: 3, borderWidth: 3 },
+      { label: 'Supply (Free Trade)', data: [10,20,30,40,50,60,70,80,90], borderColor: '#10b981', backgroundColor: 'transparent', tension: 0.3, pointRadius: 3, borderWidth: 3 },
+      { label: 'Supply (With Tariff)', data: [25,35,45,55,65,75,85,95,100], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.05)', fill: true, tension: 0.3, pointRadius: 3, borderWidth: 3, borderDash: [8,4] }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      y: { title: { display: true, text: 'Price ($)' }, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { title: { display: true, text: 'Quantity' }, grid: { color: 'rgba(71,85,105,0.1)' } }
+    }
+  }
+});
+
+// =============================================
+// CHART 4: Trade Balance of Major Economies
+// =============================================
+new Chart(document.getElementById('chart-tradebal'), {
+  type: 'bar',
+  data: {
+    labels: ['China', 'Germany', 'Russia', 'Saudi Arabia', 'Australia', 'Japan', 'Brazil', 'France', 'India', 'UK', 'USA'],
+    datasets: [{
+      label: 'Trade Balance (USD Billions)',
+      data: [820, 260, 180, 150, 50, 40, -30, -80, -260, -310, -1060],
+      backgroundColor: ctx => ctx.parsed.y >= 0 ? 'rgba(16,185,129,0.8)' : 'rgba(239,68,68,0.8)',
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => (ctx.parsed.y >= 0 ? '+$' : '-$') + Math.abs(ctx.parsed.y) + 'B' } }
+    },
+    scales: {
+      y: { title: { display: true, text: 'USD Billions' }, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// =============================================
+// CHART 5: J-Curve
+// =============================================
+new Chart(document.getElementById('chart-jcurve'), {
+  type: 'line',
+  data: {
+    labels: ['t=0\n(Depreciation)', 'Month 1', 'Month 3', 'Month 6', 'Month 9', 'Month 12', 'Month 15', 'Month 18', 'Month 24'],
+    datasets: [{
+      label: 'Trade Balance',
+      data: [0, -15, -25, -20, -8, 5, 18, 28, 35],
+      borderColor: '#f59e0b',
+      backgroundColor: 'rgba(245,158,11,0.1)',
+      fill: true,
+      tension: 0.4,
+      pointRadius: 5,
+      pointBackgroundColor: '#f59e0b',
+      borderWidth: 3
+    },
+    {
+      label: 'Pre-Depreciation Level',
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      borderColor: 'rgba(148,163,184,0.5)',
+      borderDash: [5,5],
+      pointRadius: 0,
+      borderWidth: 2,
+      fill: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      y: { title: { display: true, text: 'Trade Balance Change (USD Billions)' }, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { title: { display: true, text: 'Time After Depreciation' }, grid: { color: 'rgba(71,85,105,0.1)' } }
+    }
+  }
+});
+
+// =============================================
+// CHART 6: Current Account Components (US)
+// =============================================
+new Chart(document.getElementById('chart-ca-components'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Trade in Goods (Deficit)', 'Trade in Services (Surplus)', 'Primary Income (Surplus)', 'Secondary Income (Deficit)'],
+    datasets: [{
+      data: [1060, 280, 80, 160],
+      backgroundColor: ['#ef4444', '#10b981', '#3b82f6', '#f59e0b'],
+      borderColor: '#1e293b',
+      borderWidth: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15, font: { size: 12 } } },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': $' + ctx.parsed + 'B' } }
+    }
+  }
+});
+
+// =============================================
+// CHART 7: Forex Supply & Demand
+// =============================================
+new Chart(document.getElementById('chart-forex-sd'), {
+  type: 'line',
+  data: {
+    labels: ['','Q1','Q2','Q3','Q4','Q5','Q6','Q7',''],
+    datasets: [
+      {
+        label: 'Demand for Currency',
+        data: [1.45, 1.38, 1.31, 1.24, 1.17, 1.10, 1.03, 0.96, 0.89],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59,130,246,0.05)',
+        fill: true,
+        tension: 0.2,
+        pointRadius: 3,
+        borderWidth: 3
+      },
+      {
+        label: 'Supply of Currency',
+        data: [0.85, 0.92, 0.99, 1.06, 1.17, 1.24, 1.31, 1.38, 1.45],
+        borderColor: '#ef4444',
+        backgroundColor: 'rgba(239,68,68,0.05)',
+        fill: true,
+        tension: 0.2,
+        pointRadius: 3,
+        borderWidth: 3
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } },
+      tooltip: { mode: 'index', intersect: false },
+      annotation: {}
+    },
+    scales: {
+      y: { title: { display: true, text: 'Exchange Rate (USD per unit)' }, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { title: { display: true, text: 'Quantity of Currency' }, grid: { color: 'rgba(71,85,105,0.1)' } }
+    }
+  }
+});
+
+// =============================================
+// CHART 8: USD/EUR Trend
+// =============================================
+new Chart(document.getElementById('chart-usdeur'), {
+  type: 'line',
+  data: {
+    labels: ['Jan 2019','Jul 2019','Jan 2020','Jul 2020','Jan 2021','Jul 2021','Jan 2022','Jul 2022','Jan 2023','Jul 2023','Jan 2024','Jul 2024'],
+    datasets: [{
+      label: 'EUR/USD Exchange Rate',
+      data: [1.14, 1.12, 1.11, 1.18, 1.21, 1.19, 1.13, 1.02, 1.07, 1.10, 1.08, 1.09],
+      borderColor: '#f59e0b',
+      backgroundColor: 'rgba(245,158,11,0.1)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 4,
+      pointBackgroundColor: '#f59e0b',
+      borderWidth: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      y: { title: { display: true, text: 'EUR/USD Rate' }, min: 0.95, max: 1.30, grid: { color: 'rgba(71,85,105,0.2)' } },
+      x: { grid: { color: 'rgba(71,85,105,0.1)' } }
+    }
+  }
+});
+
+// =============================================
+// CHART 9: Interest Rate Impact on Exchange Rate
+// =============================================
+new Chart(document.getElementById('chart-interest-fx'), {
+  type: 'line',
+  data: {
+    labels: ['','Q1','Q2','Q3','Q4','Q5','Q6','Q7',''],
+    datasets: [
+      {
+        label: 'Demand (Before Rate Hike)',
+        data: [1.45, 1.38, 1.31, 1.24, 1.17, 1.10, 1.03, 0.96, 0.89],
+        borderColor: 'rgba(59,130,246,0.4)',
+        borderDash: [6,4],
+        tension: 0.2,
+        pointRadius: 2,
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Demand (After Rate Hike) — Shifted Right',
+        data: [1.55, 1.48, 1.41, 1.34, 1.27, 1.20, 1.13, 1.06, 0.99],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59,130,246,0.08)',
+        fill: true,
+        tension: 0.2,
+        pointRadius: 3,
+        borderWidth: 3
+      },
+      {
+        label: 'Supply of Currency',
+        data: [0.85, 0.92, 0.99, 1.06, 1.17, 1.24, 1.31, 1.38, 1.45],
+        borderColor: '#ef4444',
+        backgroundColor: 'rgba(239,68,68,0.05)',
+        fill: true,
+        tension: 0.2,
+        pointRadius: 3,
+        borderWidth: 3
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      y: { title: { display: true, text: 'Exchange Rate' }, grid: { color: 'rgba(71,85,105,0.2)' }, min: 0.8, max: 1.6 },
+      x: { title: { display: true, text: 'Quantity of Currency' }, grid: { color: 'rgba(71,85,105,0.1)' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
