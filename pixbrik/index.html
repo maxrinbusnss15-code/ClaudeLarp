@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PixBrik</title>
+  <meta name="description" content="Turn a photo or a 3D model into a brick picture or brick sculpture, with parts list and build guide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#/" aria-label="PixBrik home">
+      <span>P</span><span class="red">I</span><span>X</span><span>B</span><span>R</span><span class="red">I</span><span>K</span>
+      <i class="studs"><b></b><b></b><b></b><b></b></i>
+    </a>
+    <nav>
+      <a class="pill-btn" href="#/account">ACCOUNT</a>
+      <button class="round-btn" id="menu-btn" aria-label="Menu">☰</button>
+    </nav>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <div class="menu-sheet">
+      <div class="menu-head"><span class="eyebrow">EXPLORE PIXBRIK</span><button class="round-btn" id="menu-close" aria-label="Close menu">×</button></div>
+      <a href="#/">HOME</a>
+      <a href="#/create?mode=picture">CREATE FROM A PHOTO</a>
+      <a href="#/create?mode=sculpture">CREATE FROM A 3D MODEL</a>
+      <a href="#/library">OBJECT LIBRARY</a>
+      <a href="#/account">ACCOUNT</a>
+      <a href="#/contact">CONTACT</a>
+    </div>
+  </div>
+
+  <main id="view"></main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
