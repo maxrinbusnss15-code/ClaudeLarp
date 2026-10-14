@@ -5,7 +5,10 @@ Plain HTML, CSS and JavaScript with no build step. 3D uses [three.js](https://th
 
 ## Run it
 
-Browsers block JavaScript modules opened straight from a file (`file://`), so serve the folder:
+**Windows (nothing to install):** double-click `Start PixBrik (Windows).bat`. A window opens and your browser goes to PixBrik.
+Keep that window open while you use it; close it to stop. If Windows shows "Windows protected your PC", click **More info → Run anyway**.
+
+**Mac / other:** browsers block JavaScript modules opened straight from a file (`file://`), so serve the folder:
 
 ```bash
 cd pixbrik
