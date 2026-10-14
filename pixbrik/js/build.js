@@ -116,3 +116,44 @@ export function formatTime(min) {
 }
 
 export const euro = (n) => `€${n.toFixed(2)}`;
+
+// Kit sizes: every stud of the design becomes an N x N (x N for sculptures) block of studs.
+export const KIT_SIZES = [
+  { key: 'XS', factor: 1 },
+  { key: 'M', factor: 2 },
+  { key: 'L', factor: 3 },
+  { key: 'XL', factor: 4 },
+];
+
+const scaled = new WeakMap();
+
+export function scaleGrid(g, factor) {
+  if (factor === 1) return g;
+  let byFactor = scaled.get(g);
+  if (!byFactor) scaled.set(g, (byFactor = new Map()));
+  if (byFactor.has(factor)) return byFactor.get(factor);
+  const fz = g.kind === 'sculpture' ? factor : 1; // pictures and signs keep their layer count
+  const out = createGrid(g.w * factor, g.h * factor, g.d * fz, { kind: g.kind, name: g.name, studs: g.studs });
+  for (let z = 0; z < out.d; z++)
+    for (let y = 0; y < out.h; y++)
+      for (let x = 0; x < out.w; x++)
+        out.data[x + out.w * (y + out.h * z)] = g.data[Math.floor(x / factor) + g.w * (Math.floor(y / factor) + g.h * Math.floor(z / fz))];
+  byFactor.set(factor, out);
+  return out;
+}
+
+const statsCache = new WeakMap();
+export function cachedStats(g) {
+  if (!statsCache.has(g)) statsCache.set(g, stats(g));
+  return statsCache.get(g);
+}
+
+const hollowCache = new WeakMap();
+export function cachedHollow(g) {
+  if (!hollowCache.has(g)) hollowCache.set(g, hollowGrid(g));
+  return hollowCache.get(g);
+}
+
+export function guideSteps(g) {
+  return g.kind === 'sculpture' ? g.h : g.d * Math.ceil(g.h / 8);
+}

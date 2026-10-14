@@ -213,3 +213,28 @@ details.panel[open] summary { margin-bottom: 10px; }
   body { background: #fff; }
   main { max-width: none; padding: 0; }
 }
+
+/* kit size picker */
+.kit-sizes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.kit-size { display: grid; gap: 2px; justify-items: center; text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 6px; }
+.kit-size strong { font-family: var(--head); font-size: 20px; }
+.kit-size span { font-size: 11px; color: var(--muted); }
+.kit-size.on { background: var(--ink); border-color: var(--ink); }
+.kit-size.on strong { color: var(--yellow); }
+.kit-size.on span { color: #e8e3d6; }
+
+/* parts list / build guide cards */
+.kit-links { display: grid; grid-template-rows: 1fr 1fr; gap: 10px; }
+.kit-links.row2 { grid-template-rows: none; grid-template-columns: 1fr 1fr; margin: 12px 0 20px; }
+.kit-link { display: flex; align-items: center; gap: 12px; text-decoration: none; background: #fff; border-radius: 18px; padding: 14px 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08); border: 1px solid transparent; }
+.kit-link:hover { border-color: var(--ink); }
+.kit-link > span:nth-child(2) { flex: 1; display: grid; gap: 2px; }
+.kit-link strong { font-family: var(--head); font-size: 15px; letter-spacing: .3px; }
+.kit-link-ico { width: 36px; height: 36px; flex: none; border-radius: 10px; background: var(--yellow); display: grid; place-items: center; font-size: 18px; }
+.kit-link .arrow { font-size: 20px; }
+.fills + .eyebrow { margin-top: 24px; }
+@media (max-width: 420px) {
+  .kit-sizes { grid-template-columns: repeat(2, 1fr); }
+  .kit-links.row2 { grid-template-columns: 1fr; }
+}

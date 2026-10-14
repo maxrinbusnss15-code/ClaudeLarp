@@ -1,7 +1,7 @@
 // PixBrik app shell: hash router, shared state and every screen.
 
 import { PALETTE } from './palette.js';
-import { stats, hollowGrid, formatSize, formatTime, euro, pieces, partName } from './build.js';
+import { stats, hollowGrid, formatSize, formatTime, euro, pieces, partName, KIT_SIZES, scaleGrid, cachedStats, cachedHollow, guideSteps } from './build.js';
 import { SIZES, COLOUR_MODES, loadImageFromFile, frameImage, makeMosaic, sampleImage, drawGrid2D } from './mosaic.js';
 import { CATEGORIES, ITEMS, itemMatches, buildSign } from './library.js';
 
@@ -26,6 +26,7 @@ const state = {
   sculptRes: 24,
   build: null,             // current grid
   fill: 'hollow',          // 'hollow' | 'solid'
+  kitSize: 'XS',           // KIT_SIZES key: scales the whole build
   ship: 'FR',
   libCategory: 'ALL', libQuery: '', libSort: 'featured', libPage: 0,
 };
@@ -66,9 +67,21 @@ function deliveryWindow(code) {
   return `${f(a).getDate()}–${f(b).getDate()} ${m}`;
 }
 
-function currentBuild() {
+// The build as ordered: the designed grid, scaled to the kit size, hollowed if chosen.
+function buildFor(sizeKey = state.kitSize, fill = state.fill) {
   if (!state.build) return null;
-  return state.build.kind === 'sculpture' && state.fill === 'hollow' ? hollowGrid(state.build) : state.build;
+  const g = scaleGrid(state.build, KIT_SIZES.find((k) => k.key === sizeKey).factor);
+  return g.kind === 'sculpture' && fill === 'hollow' ? cachedHollow(g) : g;
+}
+const currentBuild = () => buildFor();
+
+// Card-style buttons to the parts list and build guide.
+function kitLinks(g) {
+  const st = cachedStats(g);
+  return `<a class="kit-link" href="#/parts"><span class="kit-link-ico">▤</span><span><strong>PARTS LIST</strong>
+      <span class="small">${st.parts} parts · ${st.colours} colours</span></span><span class="arrow">→</span></a>
+    <a class="kit-link" href="#/guide"><span class="kit-link-ico">❏</span><span><strong>BUILD GUIDE</strong>
+      <span class="small">${guideSteps(g)} steps · print or PDF</span></span><span class="arrow">→</span></a>`;
 }
 
 // ---- shared bits of markup --------------------------------------------------------
@@ -266,7 +279,7 @@ function Picture() {
     <details class="panel">
       <summary>Name, parts &amp; build information</summary>
       <label class="field">Name of your picture <input id="name" maxlength="40" value="${esc(state.name)}"></label>
-      <p><a href="#/parts">View the parts list →</a> · <a href="#/guide">Open phone, print and PDF build guide →</a></p>
+      <div class="kit-links row2" id="picLinks"></div>
     </details>
     ${cta('REVIEW KIT &amp; PRICE →', '#/kit')}`;
 
@@ -282,6 +295,7 @@ function Picture() {
     drawGrid2D(mosaicCanvas, state.build, { cell: Math.max(8, Math.floor(720 / studs)) });
     const st = stats(state.build);
     $('#stats').innerHTML = statRow(st);
+    $('#picLinks').innerHTML = kitLinks(currentBuild());
     renderSizes(framed);
     if (viewer && !$('[data-pane="3d"]').hidden) viewer.showGrid(state.build);
   };
@@ -466,33 +480,48 @@ function Item(id) {
 function Kit() {
   if (!state.build) { location.hash = '#/'; return; }
   const sculpt = state.build.kind === 'sculpture';
-  const solid = stats(state.build);
-  const hollow = sculpt ? stats(hollowGrid(state.build)) : solid;
+  const solid = cachedStats(buildFor(state.kitSize, 'solid'));
+  const hollow = sculpt ? cachedStats(buildFor(state.kitSize, 'hollow')) : solid;
   const chosen = sculpt && state.fill === 'hollow' ? hollow : solid;
   const ship = SHIPPING[state.ship];
   const total = chosen.price + ship.cost;
   const [whole, cents] = euro(total).slice(1).split('.');
   const saving = solid.parts ? Math.round((1 - hollow.parts / solid.parts) * 100) : 0;
+  const kitName = state.build.kind === 'sign' ? 'SIGN KIT' : 'PANEL KIT';
   view.innerHTML = `
     <div class="step-head">${backBtn('javascript:history.back()')}<div class="step-meta center"><strong>YOUR KIT</strong></div></div>
     <div class="eyebrow">${esc(state.build.name).toUpperCase()} · ESTIMATE</div>
     <div class="bigprice">€${whole}<small>.${cents}</small></div>
     <p class="small">Kit + shipping · excludes tax · prototype, no payment taken</p>
     <p class="small">Estimate based on a sample price list, not a live supplier quote.</p>
+
+    <div class="eyebrow">SIZE</div>
+    <div class="kit-sizes" role="radiogroup" aria-label="Kit size">${KIT_SIZES.map((k) => {
+      const st = cachedStats(buildFor(k.key));
+      return `<button class="kit-size ${state.kitSize === k.key ? 'on' : ''}" data-kitsize="${k.key}" role="radio" aria-checked="${state.kitSize === k.key}">
+        <strong>${k.key}</strong><span>${formatSize(st.size)}</span><span>${euro(st.price)}</span></button>`;
+    }).join('')}</div>
+    <p class="small">Same design at every size. Each size up makes the whole build bigger, with more pieces and a longer build.</p>
+
     ${sculpt ? `<div class="fills">
       <button class="fill ${state.fill === 'hollow' ? 'on' : ''}" data-fill="hollow"><div class="ico hollow"></div><strong>REINFORCED HOLLOW</strong>
         <span>${hollow.parts} parts · −${saving}% · internal supports</span><b>${euro(hollow.price)}</b></button>
       <button class="fill ${state.fill === 'solid' ? 'on' : ''}" data-fill="solid"><div class="ico"></div><strong>SOLID · COLLECTOR</strong>
         <span>${solid.parts} parts · filled core</span><b>${euro(solid.price)}</b></button>
     </div>
-    <p class="small">Same outside. Reinforced hollow keeps two base layers plus internal columns; solid fills the entire hidden core.</p>`
-    : `<div class="fills"><div class="fill on"><div class="ico"></div><strong>${state.build.kind === 'sign' ? 'SIGN KIT' : 'PANEL KIT'}</strong>
-        <span>${solid.parts} parts · ${solid.colours} colours</span><b>${euro(solid.price)}</b></div></div>`}
-    <p><a href="#/parts">View the full parts list →</a> · <a href="#/guide">Build guide →</a></p>
+    <p class="small">Same outside. Reinforced hollow keeps two base layers plus internal columns; solid fills the entire hidden core.</p>
+    <div class="kit-links row2">${kitLinks(currentBuild())}</div>`
+    : `<div class="fills">
+      <div class="fill on"><div class="ico"></div><strong>${kitName}</strong>
+        <span>${solid.parts} parts · ${solid.colours} colours · ${formatSize(solid.size)}</span><b>${euro(solid.price)}</b></div>
+      <div class="kit-links">${kitLinks(currentBuild())}</div>
+    </div>`}
+
     <div class="eyebrow">SHIP TO</div>
     <div class="chips">${Object.entries(SHIPPING).map(([k, s]) => `<button class="chip ${state.ship === k ? 'on' : ''}" data-ship="${k}">${k} ${state.ship === k ? s.label : ''}</button>`).join('')}</div>
     <p><span class="dot red"></span> <strong>Estimated delivery ${deliveryWindow(state.ship)} · ${euro(ship.cost)} shipping</strong></p>
     <div class="checkout-bar"><div><div class="tag">TOTAL</div><strong>${euro(total)}</strong></div><a class="cta" href="#/checkout">CHECKOUT →</a></div>`;
+  $$('[data-kitsize]').forEach((b) => b.onclick = () => { state.kitSize = b.dataset.kitsize; Kit(); });
   $$('[data-fill]').forEach((b) => b.onclick = () => { state.fill = b.dataset.fill; Kit(); });
   $$('[data-ship]').forEach((b) => b.onclick = () => { state.ship = b.dataset.ship; Kit(); });
 }
@@ -581,8 +610,8 @@ function Checkout() {
     <p class="muted">One last look. Prototype checkout — no real payment is collected.</p>
     <div class="panel">
       <div class="eyebrow">ORDER SUMMARY</div>
-      <div class="row"><strong>${esc(g.name)} · ${kind}</strong><span>${euro(st.price)}</span></div>
-      <div class="small">${st.parts} PARTS · ${st.colours} COLOURS · STEP-BY-STEP GUIDE INCLUDED</div>
+      <div class="row"><strong>${esc(g.name)} · ${kind} · Size ${state.kitSize}</strong><span>${euro(st.price)}</span></div>
+      <div class="small">${formatSize(st.size).toUpperCase()} · ${st.parts} PARTS · ${st.colours} COLOURS · STEP-BY-STEP GUIDE INCLUDED</div>
       <div class="row"><span>SHIPPING (${state.ship})</span><span>${euro(ship.cost)}</span></div>
       <div class="small">ESTIMATED DELIVERY ${deliveryWindow(state.ship)}</div>
       <div class="row total"><strong>Total</strong><strong>${euro(st.price + ship.cost)}</strong></div>
@@ -594,7 +623,7 @@ function Checkout() {
     <div class="cta-bar"><button class="cta" id="save">SAVE DEMO ORDER ON THIS DEVICE</button></div>`;
   $('#save').onclick = () => {
     const orders = loadOrders();
-    orders.unshift({ id: Date.now().toString(36).toUpperCase(), name: g.name, kind, parts: st.parts, total: st.price + ship.cost, ship: state.ship, date: new Date().toISOString() });
+    orders.unshift({ id: Date.now().toString(36).toUpperCase(), name: g.name, kind: `${kind} · ${state.kitSize}`, parts: st.parts, total: st.price + ship.cost, ship: state.ship, date: new Date().toISOString() });
     const ok = saveOrders(orders.slice(0, 20));
     $('#save').textContent = ok ? 'SAVED ✓ · SEE ACCOUNT' : 'COULD NOT SAVE IN THIS BROWSER';
     if (ok) $('#save').onclick = () => { location.hash = '#/account'; };
