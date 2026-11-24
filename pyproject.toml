@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tradesage"
+version = "0.1.0"
+description = "Multi-source, evidence-weighted decision engine for equities, options and IPOs (paper trading)"
+requires-python = ">=3.11"
+dependencies = ["requests>=2.28"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+tradesage = "tradesage.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tradesage*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,16 @@
+# Copy to tradesage.toml (or point TRADESAGE_CONFIG at it). Any key from
+# tradesage/config.py DEFAULTS can be overridden.
+
+[trust]
+google_news = 0.4      # trust aggregators less
+
+[quorum]
+sentiment = 3          # demand all three news feeds before sentiment counts
+
+[weights.equity]
+fundamentals = 0.30
+
+[risk]
+account_equity = 25000
+risk_per_trade = 0.005
+target_dte = 45
